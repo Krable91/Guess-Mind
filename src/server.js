@@ -10,4 +10,6 @@ app.use(express.static(join(__dirname, "static")));
 app.get("/", (req, res) => res.render("home"));
 
 const handleListening = () =>console.log(`server runnings: https://localhost:${PORT}`);
-app.listen(PORT, handleListening);
+const server = app.listen(PORT, handleListening);
+
+const io = socketIO(server);
